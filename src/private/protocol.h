@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2010 William Light <wrl@illest.net>
+ * Copyright (c) 2013 Nedko Arnaudov <nedko@arnaudov.name>
  * 
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -15,4 +16,11 @@
  */
 
 #include "internal.h"
-monome_t *monome_protocol_new();
+#if defined(EMBED_PROTOS)
+monome_t *monome_protocol_40h_new(void);
+monome_t *monome_protocol_series_new(void);
+monome_t *monome_protocol_mext_new(void);
+monome_t *monome_protocol_osc_new(void);
+#else
+monome_t *monome_protocol_new(void);
+#endif
